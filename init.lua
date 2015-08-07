@@ -1,7 +1,3 @@
-do return { wrap = function ()
-  error("TODO: Add lua-openssl and bit to luvweb")
-end } end
-
 local exports = {}
 exports.name = "creationix/coro-tls"
 exports.version = "1.2.1"
