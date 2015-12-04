@@ -60,6 +60,10 @@ exports.wrap = function (read, write, options)
   local bin, bout = openssl.bio.mem(8192), openssl.bio.mem(8192)
   local ssl = ctx:ssl(bin, bout, options.server)
 
+  if options.hostname then
+    ssl:set('hostname', options.hostname)
+  end
+  
   local function flush()
     while bout:pending() > 0 do
       write(bout:read())
